@@ -1,4 +1,4 @@
-from PyForm import MainWindow
+from PyForm.main_windo import MainWindow
 from PyQt5.QtWidgets import QApplication
 
 if __name__ == '__main__':
