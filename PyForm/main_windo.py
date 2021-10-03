@@ -1,5 +1,5 @@
 from PyUi import Ui_MainWindow
-from PyForm import EdgeParam, GaussParam
+from PyForm import EdgeParam, GaussParam, ThresholdParam
 
 from PyQt5.QtWidgets import QMainWindow, QAction
 from PyQt5.QtWidgets import QFileDialog, QTreeWidgetItem
@@ -29,14 +29,33 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.pushButton_Minus.setHidden(True)
 
         self.scrollArea.setWidget(self.label)
+        self.treeWidget.expanded.connect(self.ExpandAction)
+
+    def ExpandAction(self):
+        self.treeWidget.resizeColumnToContents(0)
 
     def MenuFilter(self, triggered):
         if triggered.text() == 'Edges':
-            self.EdgesAction()
-        
+            self.EdgesAction()      
         if triggered.text() == 'Gaussian':
-            self.GaussAction()
+            self.GaussAction()       
+        if triggered.text() == 'Threshold':
+            self.ThresholdAction()
     
+    def ThresholdAction(self):
+        thresh = ThresholdParam()
+        thresh.exec_()
+
+        if not thresh.type : return
+
+        image = self.image.ThresholdFilter(thresh)
+
+        self.imagesTree[image.GetName] = image
+        image.widget = QTreeWidgetItem(self.image.widget, [image.GetName])
+        self.image = image
+
+        self.UpdateFrame
+
     def GaussAction(self):
         gauss = GaussParam()
         gauss.exec_()

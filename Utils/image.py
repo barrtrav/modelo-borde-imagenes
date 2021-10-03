@@ -110,3 +110,16 @@ class DigImage:
         io.imsave(new_path, image, check_contrast=False)
 
         return self.AddChild(new_path)
+
+    def ThresholdFilter(self, thresh):
+        if thresh.type == 'Local':
+            image = filters.threshold_local(self.array, thresh.block_size, method=thresh.method, offset=thresh.offset, mode=thresh.mode, cval=thresh.scalar)
+            name = f'{self.GetName}_Tl'
+        if thresh.type == 'Niblack':
+            image = filters.threshold_niblack(self.array, window_size=thresh.block_size, k=thresh.scalar)
+            name = f'{self.GetName}_Tn'
+
+        new_path = f'.temp/{name}.{self.GetExtension}'
+        io.imsave(new_path, image, check_contrast=False)
+
+        return self.AddChild(new_path)

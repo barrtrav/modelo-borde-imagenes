@@ -14,9 +14,9 @@ class EdgeParam(QDialog, Ui_Dialog_Edge):
         self.buttonBox.accepted.connect(self.AcceptedAction)
 
     def TypeEdgeAction(self):
-        filter = self.comboBox.currentText()
+        edgetype = self.comboBox.currentText()
 
-        if filter == 'Roberts':
+        if edgetype == 'Roberts':
             self.radioButton_1.setEnabled(True)
             self.radioButton_2.setEnabled(True)
             self.radioButton_3.setEnabled(True)
@@ -24,7 +24,7 @@ class EdgeParam(QDialog, Ui_Dialog_Edge):
             self.radioButton_2.setText('Positive')
             self.radioButton_3.setText('Negative')
         
-        elif filter == 'Laplace':
+        elif edgetype == 'Laplace':
             self.radioButton_1.setDisabled(True)
             self.radioButton_2.setDisabled(True)
             self.radioButton_3.setDisabled(True)
