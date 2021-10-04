@@ -21,6 +21,7 @@ version: ## Show the project version
 
 install: ## Install the project dependencies
 	pip3 install PyQt5
+	pip3 install skimage
 
 clean: ## Remove temporary files
 	rm -rf PyForm/__pycache__/
