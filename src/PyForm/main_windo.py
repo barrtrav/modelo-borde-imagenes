@@ -1,16 +1,17 @@
+import webbrowser
+
+from PyQt5.QtGui import *
+from PyQt5.QtCore import *
+from PyQt5.QtWidgets import *
+from PyQt5.QtPrintSupport import *
+
 from PyUi import Ui_MainWindow
+from Utils.image import DigImage
+from PyUi import Ui_About_App, Ui_About_Authors
 from PyForm import EdgeParam, GaussParam, ThresholdParam
 
-from PyQt5.QtWidgets import QMainWindow, QAction
-from PyQt5.QtWidgets import QFileDialog, QTreeWidgetItem
-
-from PyQt5.QtGui import QPixmap, QMouseEvent
-from PyQt5.QtCore import Qt
-
-from Utils.image import DigImage
-
-
 class MainWindow(QMainWindow, Ui_MainWindow):
+
     def __init__(self):
         QMainWindow.__init__(self)
         self.setupUi(self)
@@ -21,6 +22,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
         self.menuFile.triggered[QAction].connect(self.MenuFile)
         self.menuFilter.triggered[QAction].connect(self.MenuFilter)
+        self.menuOptions.triggered[QAction].connect(self.MenuOptions)
         self.treeWidget.clicked.connect(self.SelectItemAction)
         
         self.pushButton_Plus.clicked.connect(self.EnlargeAction)
@@ -34,6 +36,40 @@ class MainWindow(QMainWindow, Ui_MainWindow):
     def ExpandAction(self):
         self.treeWidget.resizeColumnToContents(0)
 
+    def MenuOptions(self, triggered):
+        if triggered.text() == 'Help':
+            self.HelpAction()
+        if triggered.text() == 'Orientation':
+            self.OrientationAction()
+        if triggered.text() == 'Report':
+            self.ReportAction()
+        if triggered.text() == 'About the Authors':
+            self.AboutAuthorsAction()
+        if triggered.text() == 'About the App':
+            self.AboutAppAction()
+
+    def HelpAction(self):
+        pass
+
+    def OrientationAction(self):
+        path = '../doc/Bordes Imagenes Medicas.pdf'
+        webbrowser.open_new(path)
+
+    def ReportAction(self):
+        pass
+
+    def AboutAuthorsAction(self):
+        dialog = QDialog()
+        ui_dialog = Ui_About_Authors()
+        ui_dialog.setupUi(dialog)
+        dialog.exec()
+
+    def AboutAppAction(self):
+        dialog = QDialog()
+        ui_dialog = Ui_About_App()
+        ui_dialog.setupUi(dialog)
+        dialog.exec()
+
     def MenuFilter(self, triggered):
         if triggered.text() == 'Edges':
             self.EdgesAction()      
@@ -46,42 +82,39 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         thresh = ThresholdParam()
         thresh.exec_()
 
-        if not thresh.type : return
-
+        if not thresh.type:
+            return
         image = self.image.ThresholdFilter(thresh)
 
         self.imagesTree[image.GetName] = image
         image.widget = QTreeWidgetItem(self.image.widget, [image.GetName])
         self.image = image
-
         self.UpdateFrame
 
     def GaussAction(self):
         gauss = GaussParam()
         gauss.exec_()
 
-        if not gauss.sigma : return
-
+        if not gauss.sigma:
+            return
         image = self.image.GaussFilter(gauss)
 
         self.imagesTree[image.GetName] = image
         image.widget = QTreeWidgetItem(self.image.widget, [image.GetName])
         self.image = image
-
         self.UpdateFrame
 
     def EdgesAction(self):
         edges = EdgeParam()
         edges.exec_()
 
-        if not edges.filter : return
-        
+        if not edges.filter:
+            return
         image = self.image.EdgesFilter(edges)
         
         self.imagesTree[image.GetName] = image
         image.widget = QTreeWidgetItem(self.image.widget, [image.GetName])
         self.image = image
-
         self.UpdateFrame
 
     def mouseMoveEvent(self, event):
@@ -108,24 +141,22 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.pushButton_Minus.setGeometry(self.width()/4 + 45, 15, 25, 25)
 
     def MenuFile(self, triggered):
-        if triggered.text() == 'Load':
+        if triggered.text() == 'Load Image':
             self.LoadImageAction()
-        if triggered.text() == 'Remove':
+        if triggered.text() == 'Remove Image':
             self.RemoveImageAction()
-        if triggered.text() == 'Save':
+        if triggered.text() == 'Save Image':
             self.SaveAction()
-        if triggered.text() == 'Save Group':
+        if triggered.text() == 'Save Images in Group':
             self.SaveGroupAction()
         if triggered.text() == 'Exit':
             self.ExitAction()
 
     def LoadImageAction(self):
-        path = QFileDialog.getOpenFileName(
-            self, caption='Load Image', 
-            filter='Image File (*.jpg  *.png)')[0]
+        path = QFileDialog.getOpenFileName(self, directory='../img/', caption='Load Image', filter='Image File (*.jpg  *.png)')[0]
         
-        if not path : return
-
+        if not path:
+            return
         self.image = DigImage(path)
         
         try:
@@ -152,23 +183,24 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
     def SelectItemAction(self):
         imagename =  self.treeWidget.currentItem().text(0)
-        if imagename == self.image.GetName: return
+        if imagename == self.image.GetName:
+            return
 
         self.image = self.imagesTree[imagename]
         self.UpdateFrame
 
     def SaveAction(self):
-        path = QFileDialog.getExistingDirectory(self,
-            directory='./', caption='Save Image')
+        path = QFileDialog.getExistingDirectory(self, directory='../img/', caption='Save Image')
         
-        if not path: return
+        if not path:
+            return
         self.image.SaveImage(path)
     
     def SaveGroupAction(self):
-        path = QFileDialog.getExistingDirectory(self,
-            directory='./', caption='Save Images Group')
+        path = QFileDialog.getExistingDirectory(self, directory='../img/', caption='Save Images in Group')
         
-        if not path: return
+        if not path:
+            return
         self.image.SaveGroupImage(path)
 
     def EnlargeAction(self):

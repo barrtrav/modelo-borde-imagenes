@@ -1,19 +1,12 @@
-# -*- coding: utf-8 -*-
-
-# Form implementation generated from reading ui file './UiForm/gauss_param.ui'
-#
-# Created by: PyQt5 UI code generator 5.13.2
-#
-# WARNING! All changes made in this file will be lost!
-
-
 from PyQt5 import QtCore, QtGui, QtWidgets
-
 
 class Ui_Dialog(object):
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
         Dialog.resize(341, 185)
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap("../icons/python.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        Dialog.setWindowIcon(icon)
         self.buttonBox = QtWidgets.QDialogButtonBox(Dialog)
         self.buttonBox.setGeometry(QtCore.QRect(140, 140, 171, 32))
         self.buttonBox.setOrientation(QtCore.Qt.Horizontal)
@@ -24,7 +17,7 @@ class Ui_Dialog(object):
         self.spinBox.setMinimum(1)
         self.spinBox.setObjectName("spinBox")
         self.label = QtWidgets.QLabel(Dialog)
-        self.label.setGeometry(QtCore.QRect(20, 10, 41, 21))
+        self.label.setGeometry(QtCore.QRect(50, 10, 41, 21))
         self.label.setObjectName("label")
         self.comboBox = QtWidgets.QComboBox(Dialog)
         self.comboBox.setGeometry(QtCore.QRect(110, 50, 191, 25))
@@ -35,14 +28,14 @@ class Ui_Dialog(object):
         self.comboBox.addItem("")
         self.comboBox.addItem("")
         self.label_2 = QtWidgets.QLabel(Dialog)
-        self.label_2.setGeometry(QtCore.QRect(30, 50, 67, 17))
+        self.label_2.setGeometry(QtCore.QRect(50, 50, 51, 17))
         self.label_2.setObjectName("label_2")
         self.doubleSpinBox = QtWidgets.QDoubleSpinBox(Dialog)
         self.doubleSpinBox.setEnabled(False)
         self.doubleSpinBox.setGeometry(QtCore.QRect(230, 90, 69, 26))
         self.doubleSpinBox.setObjectName("doubleSpinBox")
         self.label_3 = QtWidgets.QLabel(Dialog)
-        self.label_3.setGeometry(QtCore.QRect(110, 100, 67, 17))
+        self.label_3.setGeometry(QtCore.QRect(50, 90, 67, 17))
         self.label_3.setObjectName("label_3")
 
         self.retranslateUi(Dialog)

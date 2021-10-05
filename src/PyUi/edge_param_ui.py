@@ -1,26 +1,19 @@
-# -*- coding: utf-8 -*-
-
-# Form implementation generated from reading ui file './UiForm/edge_param.ui'
-#
-# Created by: PyQt5 UI code generator 5.13.2
-#
-# WARNING! All changes made in this file will be lost!
-
-
 from PyQt5 import QtCore, QtGui, QtWidgets
-
 
 class Ui_Dialog(object):
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
-        Dialog.resize(412, 194)
+        Dialog.resize(412, 199)
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap("../icons/python.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        Dialog.setWindowIcon(icon)
         self.buttonBox = QtWidgets.QDialogButtonBox(Dialog)
-        self.buttonBox.setGeometry(QtCore.QRect(220, 150, 171, 32))
+        self.buttonBox.setGeometry(QtCore.QRect(220, 160, 171, 32))
         self.buttonBox.setOrientation(QtCore.Qt.Horizontal)
         self.buttonBox.setStandardButtons(QtWidgets.QDialogButtonBox.Cancel|QtWidgets.QDialogButtonBox.Ok)
         self.buttonBox.setObjectName("buttonBox")
         self.comboBox = QtWidgets.QComboBox(Dialog)
-        self.comboBox.setGeometry(QtCore.QRect(140, 20, 261, 25))
+        self.comboBox.setGeometry(QtCore.QRect(140, 20, 251, 25))
         self.comboBox.setObjectName("comboBox")
         self.comboBox.addItem("")
         self.comboBox.addItem("")
@@ -29,7 +22,7 @@ class Ui_Dialog(object):
         self.comboBox.addItem("")
         self.comboBox.addItem("")
         self.label = QtWidgets.QLabel(Dialog)
-        self.label.setGeometry(QtCore.QRect(30, 20, 101, 21))
+        self.label.setGeometry(QtCore.QRect(20, 20, 101, 21))
         self.label.setObjectName("label")
         self.spinBox = QtWidgets.QSpinBox(Dialog)
         self.spinBox.setEnabled(False)
@@ -39,7 +32,7 @@ class Ui_Dialog(object):
         self.label_2.setGeometry(QtCore.QRect(240, 110, 67, 31))
         self.label_2.setObjectName("label_2")
         self.radioButton_1 = QtWidgets.QRadioButton(Dialog)
-        self.radioButton_1.setGeometry(QtCore.QRect(20, 70, 112, 23))
+        self.radioButton_1.setGeometry(QtCore.QRect(30, 70, 81, 23))
         self.radioButton_1.setCheckable(True)
         self.radioButton_1.setChecked(True)
         self.radioButton_1.setObjectName("radioButton_1")
@@ -47,7 +40,7 @@ class Ui_Dialog(object):
         self.radioButton_2.setGeometry(QtCore.QRect(150, 70, 112, 23))
         self.radioButton_2.setObjectName("radioButton_2")
         self.radioButton_3 = QtWidgets.QRadioButton(Dialog)
-        self.radioButton_3.setGeometry(QtCore.QRect(290, 70, 112, 23))
+        self.radioButton_3.setGeometry(QtCore.QRect(310, 70, 81, 23))
         self.radioButton_3.setObjectName("radioButton_3")
 
         self.retranslateUi(Dialog)

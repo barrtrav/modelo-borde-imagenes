@@ -89,6 +89,7 @@ class DigImage:
         if edge.filter == 'Farid':
             if edge.ftype == 'Simple':
                 image = filters.farid(self.array)
+                print('aqui')
                 name = f'{self.GetName}_edge-Fs'
             if edge.ftype == 'Horizontal':
                 image = filters.farid_h(self.array)
