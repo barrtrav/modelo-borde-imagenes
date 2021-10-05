@@ -2,6 +2,9 @@ from PyQt5.QtWidgets import QDialog
 from PyUi import Ui_Dialog_Threshold
 
 class ThresholdParam(QDialog, Ui_Dialog_Threshold):
+    '''
+    Clase encargada de recopilar los parametros para aplicar el filtro threshold.
+    '''
     def __init__(self):
         QDialog.__init__(self)
         self.setupUi(self)
@@ -26,10 +29,8 @@ class ThresholdParam(QDialog, Ui_Dialog_Threshold):
             self.label_3.setEnabled(True)
             self.label_4.setEnabled(True)
             self.label_5.setEnabled(True)
-
             self.label_2.setText('Block Size')
             self.label_6.setText('Scalr')
-        
         else:
             self.comboBox_2.setEnabled(False)
             self.comboBox_3.setEnabled(False)
@@ -37,7 +38,6 @@ class ThresholdParam(QDialog, Ui_Dialog_Threshold):
             self.label_3.setEnabled(False)
             self.label_4.setEnabled(False)
             self.label_5.setEnabled(False)
-
             self.label_2.setText('Window Size')
             self.label_6.setText('k')
 
