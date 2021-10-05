@@ -6,7 +6,7 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtPrintSupport import *
 
 from PyUi import Ui_MainWindow
-from Utils.image import DigImage
+from Utils.digital_image import DigitalImage
 from PyUi import Ui_About_App, Ui_About_Authors
 from PyForm import EdgeParam, GaussParam, ThresholdParam
 
@@ -157,7 +157,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         
         if not path:
             return
-        self.image = DigImage(path)
+        self.image = DigitalImage(path)
         
         try:
             self.imagesTree[self.image.GetName]
@@ -208,7 +208,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         
         self.image.width += 10
         self.image.height += 10
-        
+
         self.label.setPixmap(bixmap.scaled(self.image.width, self.image.height, Qt.KeepAspectRatio))
     
     def ShrinkAction(self):
