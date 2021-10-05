@@ -1,7 +1,10 @@
-from PyQt5.QtWidgets import QDialog
 from PyUi import Ui_Dialog_Gauss
+from PyQt5.QtWidgets import QDialog
 
 class GaussParam(QDialog, Ui_Dialog_Gauss):
+    '''
+    Clase encargada de recopilar los parametros para aplicar el filtro gauss.
+    '''
     def __init__(self):
         QDialog.__init__(self)
         self.setupUi(self)
@@ -15,7 +18,6 @@ class GaussParam(QDialog, Ui_Dialog_Gauss):
 
     def ModelAction(self):
         mode = self.comboBox.currentText()
-
         if mode == 'constant':
             self.doubleSpinBox.setEnabled(True)
         else:
