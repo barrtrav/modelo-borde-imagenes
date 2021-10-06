@@ -1,11 +1,21 @@
+# -*- coding: utf-8 -*-
+
+# Form implementation generated from reading ui file './UiForm/edge_param.ui'
+#
+# Created by: PyQt5 UI code generator 5.14.1
+#
+# WARNING! All changes made in this file will be lost!
+
+
 from PyQt5 import QtCore, QtGui, QtWidgets
+
 
 class Ui_Dialog(object):
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
         Dialog.resize(412, 199)
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("../icons/python.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap("./UiForm/../../icons/python.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         Dialog.setWindowIcon(icon)
         self.buttonBox = QtWidgets.QDialogButtonBox(Dialog)
         self.buttonBox.setGeometry(QtCore.QRect(220, 160, 171, 32))
@@ -59,9 +69,9 @@ class Ui_Dialog(object):
         self.comboBox.setItemText(5, _translate("Dialog", "Scahrr"))
         self.label.setText(_translate("Dialog", "Edges Filters"))
         self.label_2.setText(_translate("Dialog", "K-Size"))
-        self.radioButton_1.setText(_translate("Dialog", "Simple"))
-        self.radioButton_2.setText(_translate("Dialog", "Horizontal"))
-        self.radioButton_3.setText(_translate("Dialog", "Vertical"))
+        self.radioButton_1.setText(_translate("Dialog", "&Simple"))
+        self.radioButton_2.setText(_translate("Dialog", "&Horizontal"))
+        self.radioButton_3.setText(_translate("Dialog", "Ve&rtical"))
 
 
 if __name__ == "__main__":

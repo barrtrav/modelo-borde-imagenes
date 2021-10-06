@@ -1,11 +1,21 @@
+# -*- coding: utf-8 -*-
+
+# Form implementation generated from reading ui file './UiForm/about_app.ui'
+#
+# Created by: PyQt5 UI code generator 5.14.1
+#
+# WARNING! All changes made in this file will be lost!
+
+
 from PyQt5 import QtCore, QtGui, QtWidgets
+
 
 class Ui_AboutApp(object):
     def setupUi(self, AboutApp):
         AboutApp.setObjectName("AboutApp")
         AboutApp.resize(619, 370)
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("../icons/python.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap("./UiForm/../../icons/python.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         AboutApp.setWindowIcon(icon)
         self.gridLayout = QtWidgets.QGridLayout(AboutApp)
         self.gridLayout.setObjectName("gridLayout")

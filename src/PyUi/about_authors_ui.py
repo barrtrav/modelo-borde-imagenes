@@ -1,11 +1,21 @@
+# -*- coding: utf-8 -*-
+
+# Form implementation generated from reading ui file './UiForm/about_authors.ui'
+#
+# Created by: PyQt5 UI code generator 5.14.1
+#
+# WARNING! All changes made in this file will be lost!
+
+
 from PyQt5 import QtCore, QtGui, QtWidgets
+
 
 class Ui_AboutAuthors(object):
     def setupUi(self, AboutAuthors):
         AboutAuthors.setObjectName("AboutAuthors")
         AboutAuthors.resize(832, 510)
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("../icons/python.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap("./UiForm/../../icons/python.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         AboutAuthors.setWindowIcon(icon)
         self.gridLayout = QtWidgets.QGridLayout(AboutAuthors)
         self.gridLayout.setObjectName("gridLayout")
