@@ -27,7 +27,7 @@ clean: ## Remove temporary files
 	rm -rf PyForm/__pycache__/
 	rm -rf PyUi/__pycache__/
 	rm -rf Utils/__pycache__/
-	tm .temp/
+	rm .temp/*
 
 help: ## Show this help
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'

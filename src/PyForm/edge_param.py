@@ -23,8 +23,8 @@ class EdgeParam(QDialog, Ui_Dialog_Edge):
             self.radioButton_1.setEnabled(True)
             self.radioButton_2.setEnabled(True)
             self.radioButton_3.setEnabled(True)
-            self.radioButton_2.setText('Positive')
-            self.radioButton_3.setText('Negative')        
+            self.radioButton_2.setText('&Positive')
+            self.radioButton_3.setText('&Negative')        
         elif edgetype == 'Laplace':
             self.radioButton_1.setDisabled(True)
             self.radioButton_2.setDisabled(True)
@@ -34,8 +34,8 @@ class EdgeParam(QDialog, Ui_Dialog_Edge):
             self.radioButton_1.setEnabled(True)
             self.radioButton_2.setEnabled(True)
             self.radioButton_3.setEnabled(True)
-            self.radioButton_2.setText('Horizontal')
-            self.radioButton_3.setText('Vertical')
+            self.radioButton_2.setText('&Horizontal')
+            self.radioButton_3.setText('Ve&rtical')
             self.spinBox.setDisabled(True)
 
     def AcceptedAction(self):

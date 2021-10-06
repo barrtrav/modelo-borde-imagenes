@@ -27,8 +27,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         
         self.pushButton_Plus.clicked.connect(self.EnlargeAction)
         self.pushButton_Minus.clicked.connect(self.ShrinkAction)
-        self.pushButton_Plus.setHidden(True)
-        self.pushButton_Minus.setHidden(True)
+        #self.pushButton_Plus.setHidden(True)
+        #self.pushButton_Minus.setHidden(True)
 
         self.scrollArea.setWidget(self.label)
         self.treeWidget.expanded.connect(self.ExpandAction)
@@ -117,28 +117,30 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.image = image
         self.UpdateFrame
 
-    def mouseMoveEvent(self, event):
-        if self.image:
-            if not self.timecount:
-                self.pushButton_Plus.setHidden(False)
-                self.pushButton_Minus.setHidden(False)
-            self.timecount += 1
-            self.startTimer(2000)
+    #def mouseMoveEvent(self, event):
+    #    if self.image:
+    #        if not self.timecount:
+    #            self.pushButton_Plus.setHidden(False)
+    #            self.pushButton_Minus.setHidden(False)
+    #        self.timecount += 1
+    #        self.startTimer(2000)
     
-    def timerEvent(self, event):
-        if not self.timecount:
-            self.pushButton_Plus.setHidden(True)
-            self.pushButton_Minus.setHidden(True)
-            self.killTimer(event.timerId())
-        elif self.timecount > 0:
-            self.timecount -= 1
+    #def timerEvent(self, event):
+    #    if not self.timecount:
+    #       self.pushButton_Plus.setHidden(True)
+    #        self.pushButton_Minus.setHidden(True)
+    #        self.killTimer(event.timerId())
+    #    elif self.timecount > 0:
+    #        self.timecount -= 1
         
     def resizeEvent(self, event):
-        self.treeWidget.setGeometry(0, 0, self.width()/4, self.height()-44)
-        self.label.setGeometry(self.width()/4, 0, 3*self.width()/4, self.height()-44)
-        self.scrollArea.setGeometry(self.width()/4, 0, 3*self.width()/4, self.height()-44)
+        self.treeWidget.setGeometry(0, 0, self.width()/4, self.height()-44-70)
+        self.label.setGeometry(self.width()/4, 0, 3*self.width()/4, self.height()-44-70)
+        self.scrollArea.setGeometry(self.width()/4, 0, 3*self.width()/4, self.height()-44-70)
         self.pushButton_Plus.setGeometry(self.width()/4 + 15, 15, 25, 25)
         self.pushButton_Minus.setGeometry(self.width()/4 + 45, 15, 25, 25)
+        self.tableWidget.setGeometry(0, self.height()-44-70, self.width(), 70)
+        self.tableWidget.horizontalHeader().setDefaultSectionSize(self.width()/3-4)
 
     def MenuFile(self, triggered):
         if triggered.text() == 'Load Image':
@@ -233,7 +235,11 @@ class MainWindow(QMainWindow, Ui_MainWindow):
     @property
     def UpdateFrame(self):
         if self.image:
-            self.label.setPixmap(QPixmap(f'.temp/{self.image.filename}'))
+            self.label.setPixmap(QPixmap(f'.temp/{self.image.filename}'))      
+            measure = self.image.QualityMeasures
+            self.tableWidget.item(0, 0).setText(f'{measure[0]}')
+            self.tableWidget.item(0, 1).setText(f'{measure[1]}')
+            self.tableWidget.item(0, 2).setText(f'{measure[2]}')
         else:
             self.label.setPixmap(QPixmap())
     
