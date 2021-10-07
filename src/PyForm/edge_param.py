@@ -51,5 +51,5 @@ class EdgeParam(QDialog, Ui_Dialog_Edge):
             self.ftype = self.radioButton_2.text()
         else:
             self.ftype = self.radioButton_3.text()
-        
-        self.ksize = int(self.spinBox.text())
+        print(self.spinBox.text())
+        self.ksize = int(self.spinBox.text() if self.spinBox.text() else 0)
