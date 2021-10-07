@@ -4,3 +4,4 @@ from PyUi.edge_param_ui import Ui_Dialog as Ui_Dialog_Edge
 from PyUi.gauss_param_ui import Ui_Dialog as Ui_Dialog_Gauss
 from PyUi.threshold_param_ui import Ui_Dialog as Ui_Dialog_Threshold
 from PyUi.about_authors_ui import Ui_AboutAuthors as Ui_About_Authors
+from PyUi.present_ui import Ui_Form as Ui_Dialog_Present
