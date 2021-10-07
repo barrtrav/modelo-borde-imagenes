@@ -24,7 +24,7 @@ class Ui_MainWindow(object):
         self.centralwidget.setObjectName("centralwidget")
         self.treeWidget = QtWidgets.QTreeWidget(self.centralwidget)
         self.treeWidget.setGeometry(QtCore.QRect(0, 0, 200, 551))
-        self.treeWidget.setMouseTracking(False)
+        self.treeWidget.setMouseTracking(True)
         self.treeWidget.setFrameShape(QtWidgets.QFrame.Box)
         self.treeWidget.setLineWidth(3)
         self.treeWidget.setHeaderHidden(True)

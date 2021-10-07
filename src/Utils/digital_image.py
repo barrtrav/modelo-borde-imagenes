@@ -29,7 +29,7 @@ class DigitalImage:
         '''
         Propiedad que devuelve el nombre del fichero.
         '''
-        name, _ = self.filename.split('.')
+        name = self.filename[:-5]
         return name
     
     @property
@@ -37,7 +37,7 @@ class DigitalImage:
         '''
         Propiedad que devuelve la extension del fichero.
         '''
-        _, extention = self.filename.split('.')
+        extention = self.filename[-3:]
         return extention
 
     def AddChild(self, path):
