@@ -13,3 +13,5 @@
 - Se agrego una presentacion al principio (Estaba aburrido :)
 - Ya puse la consola, en este caso seria un tablaWidget
 - Agregue una funcionaldad a la consola para que se ocurte, asi que no debe ser problema lo de la escala de la imagen (Aun en caso de desformarse se puede usar el zoom)
+
+- Hay que agregar algunos filtros usando mask, sobre todo el del umbral(no se si es el nommbre ) creo que seria interesante aplicar este filtro antes de DA
