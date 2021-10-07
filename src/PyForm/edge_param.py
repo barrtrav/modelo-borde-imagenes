@@ -9,34 +9,38 @@ class EdgeParam(QDialog, Ui_Dialog_Edge):
         QDialog.__init__(self)
         self.setupUi(self)
 
+        self.ksize = None
         self.ftype = None
         self.filter = None
-        self.ksize = None
         
-        self.comboBox.currentIndexChanged.connect(self.TypeEdgeAction)
         self.buttonBox.accepted.connect(self.AcceptedAction)
+        self.comboBox.currentIndexChanged.connect(self.TypeEdgeAction)
+
+        self.label_2.setHidden(True)
+        self.spinBox.setHidden(True) 
 
     def TypeEdgeAction(self):
         edgetype = self.comboBox.currentText()
 
         if edgetype == 'Roberts':
-            self.radioButton_1.setEnabled(True)
-            self.radioButton_2.setEnabled(True)
-            self.radioButton_3.setEnabled(True)
-            self.radioButton_2.setText('&Positive')
-            self.radioButton_3.setText('&Negative')        
-        elif edgetype == 'Laplace':
-            self.radioButton_1.setDisabled(True)
-            self.radioButton_2.setDisabled(True)
-            self.radioButton_3.setDisabled(True)
-            self.spinBox.setEnabled(True)
+            self.radioButton_3.setText('&Positive')
+            self.radioButton_2.setText('&Negative')
         else:
-            self.radioButton_1.setEnabled(True)
-            self.radioButton_2.setEnabled(True)
-            self.radioButton_3.setEnabled(True)
-            self.radioButton_2.setText('&Horizontal')
             self.radioButton_3.setText('Ve&rtical')
-            self.spinBox.setDisabled(True)
+            self.radioButton_2.setText('&Horizontal')
+      
+        if edgetype == 'Laplace':
+            self.radioButton_1.setHidden(True)
+            self.radioButton_2.setHidden(True)
+            self.radioButton_3.setHidden(True)
+            self.label_2.setHidden(False)
+            self.spinBox.setHidden(False) 
+        else:
+            self.radioButton_1.setHidden(False)
+            self.radioButton_2.setHidden(False)
+            self.radioButton_3.setHidden(False)
+            self.label_2.setHidden(True)
+            self.spinBox.setHidden(True) 
 
     def AcceptedAction(self):
         self.filter = self.comboBox.currentText()

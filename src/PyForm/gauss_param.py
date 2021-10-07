@@ -19,8 +19,10 @@ class GaussParam(QDialog, Ui_Dialog_Gauss):
     def ModelAction(self):
         mode = self.comboBox.currentText()
         if mode == 'constant':
+            self.label_3.setEnabled(True)
             self.doubleSpinBox.setEnabled(True)
         else:
+            self.label_3.setDisabled(True)
             self.doubleSpinBox.setDisabled(True)
 
     def AcceptedAction(self):
