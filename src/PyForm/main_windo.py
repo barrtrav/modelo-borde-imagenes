@@ -19,8 +19,9 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.image = None
         self.imagesTree = dict()
         self.timecount = 0
-
         self.hide_console = False
+        self.timer = QTimer(self)
+        self.timer.timeout.connect(self.TimerAction)
 
         self.menuFile.triggered[QAction].connect(self.MenuFile)
         self.menuFilter.triggered[QAction].connect(self.MenuFilter)
@@ -30,8 +31,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.pushButton_Plus.clicked.connect(self.EnlargeAction)
         self.pushButton_Minus.clicked.connect(self.ShrinkAction)
         self.pushButton.clicked.connect(self.HideAction)
-        #self.pushButton_Plus.setHidden(True)
-        #self.pushButton_Minus.setHidden(True)
+        self.pushButton_Plus.setHidden(True)
+        self.pushButton_Minus.setHidden(True)       
 
         self.scrollArea.setWidget(self.label)
         self.treeWidget.expanded.connect(self.ExpandAction)
@@ -132,13 +133,21 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.image = image
         self.UpdateFrame
 
-    #def mouseMoveEvent(self, event):
-    #    if self.image:
-    #        if not self.timecount:
-    #            self.pushButton_Plus.setHidden(False)
-    #            self.pushButton_Minus.setHidden(False)
-    #        self.timecount += 1
-    #        self.startTimer(2000)
+    def TimerAction(self):
+        self.timecount += 1
+        if self.timecount > 50000:
+            self.pushButton_Plus.setHidden(True)
+            self.pushButton_Minus.setHidden(True)
+            self.timer.stop()
+            self.timecount = 0
+
+    def mouseMoveEvent(self, event):
+        if self.image and not self.timecount :
+            self.pushButton_Plus.setHidden(False)
+            self.pushButton_Minus.setHidden(False)
+            self.timer.start()
+        elif self.image:
+            self.timecount = 0
     
     #def timerEvent(self, event):
     #    if not self.timecount:
@@ -241,6 +250,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.image.width += 10
         self.image.height += 10
 
+        self.timecount = 0
         self.label.setPixmap(bixmap.scaled(self.image.width, self.image.height, Qt.KeepAspectRatio))
     
     def ShrinkAction(self):
@@ -249,6 +259,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.image.width -= 10
         self.image.height -= 10
         
+        self.timecount = 0
         self.label.setPixmap(bixmap.scaled(self.image.width, self.image.height, Qt.KeepAspectRatio))
 
     def ExitAction(self):

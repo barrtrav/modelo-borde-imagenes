@@ -8,7 +8,7 @@ class Present(QDialog, Ui_Dialog_Present):
         self.setupUi(self)
         self.setWindowFlag(Qt.FramelessWindowHint)
 
-        self.maxvalue = 100
+        self.maxvalue = 50
 
         self.progressBar.setMinimum(0)
         self.progressBar.setMaximum(self.maxvalue)
