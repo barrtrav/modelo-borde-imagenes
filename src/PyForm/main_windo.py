@@ -20,6 +20,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.imagesTree = dict()
         self.timecount = 0
 
+        self.hide_console = False
+
         self.menuFile.triggered[QAction].connect(self.MenuFile)
         self.menuFilter.triggered[QAction].connect(self.MenuFilter)
         self.menuOptions.triggered[QAction].connect(self.MenuOptions)
@@ -27,12 +29,25 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         
         self.pushButton_Plus.clicked.connect(self.EnlargeAction)
         self.pushButton_Minus.clicked.connect(self.ShrinkAction)
+        self.pushButton.clicked.connect(self.HideAction)
         #self.pushButton_Plus.setHidden(True)
         #self.pushButton_Minus.setHidden(True)
 
         self.scrollArea.setWidget(self.label)
         self.treeWidget.expanded.connect(self.ExpandAction)
 
+    def HideAction(self):
+        if self.hide_console:
+            self.hide_console = False
+            self.tableWidget.setHidden(False)
+            self.pushButton.setIcon(QIcon('../icons/hide.png'))
+        else:
+            self.hide_console = True
+            self.tableWidget.setHidden(True)
+            self.pushButton.setIcon(QIcon('../icons/no-hide.png'))
+        
+        self.resizeEvent(None)
+    
     def ExpandAction(self):
         self.treeWidget.resizeColumnToContents(0)
 
@@ -134,13 +149,28 @@ class MainWindow(QMainWindow, Ui_MainWindow):
     #        self.timecount -= 1
         
     def resizeEvent(self, event):
-        self.treeWidget.setGeometry(0, 0, self.width()/4, self.height()-44-70)
-        self.label.setGeometry(self.width()/4, 0, 3*self.width()/4, self.height()-44-70)
-        self.scrollArea.setGeometry(self.width()/4, 0, 3*self.width()/4, self.height()-44-70)
-        self.pushButton_Plus.setGeometry(self.width()/4 + 15, 15, 25, 25)
-        self.pushButton_Minus.setGeometry(self.width()/4 + 45, 15, 25, 25)
-        self.tableWidget.setGeometry(0, self.height()-44-70, self.width(), 70)
-        self.tableWidget.horizontalHeader().setDefaultSectionSize(self.width()/3-4)
+        if self.hide_console:
+            self.treeWidget.setGeometry(0, 0, self.width()/4, self.height()-44-15)
+            self.label.setGeometry(self.width()/4, 0, 3*self.width()/4, self.height()-44-15)
+            self.scrollArea.setGeometry(self.width()/4, 0, 3*self.width()/4, self.height()-44-15)
+            
+            self.pushButton_Plus.setGeometry(self.width()/4 + 15, 15, 25, 25)
+            self.pushButton_Minus.setGeometry(self.width()/4 + 45, 15, 25, 25)
+
+            self.pushButton.setGeometry(0, self.height()-44-15, self.width(), 15)
+            
+        else:
+            self.treeWidget.setGeometry(0, 0, self.width()/4, self.height()-44-60-15)
+            self.label.setGeometry(self.width()/4, 0, 3*self.width()/4, self.height()-44-60-15)
+            self.scrollArea.setGeometry(self.width()/4, 0, 3*self.width()/4, self.height()-44-60-15)
+            
+            self.pushButton_Plus.setGeometry(self.width()/4 + 15, 15, 25, 25)
+            self.pushButton_Minus.setGeometry(self.width()/4 + 45, 15, 25, 25)
+
+            self.pushButton.setGeometry(0, self.height()-44-60-15, self.width(), 15)
+            
+            self.tableWidget.setGeometry(0, self.height()-44-60, self.width(), 60)
+            self.tableWidget.horizontalHeader().setDefaultSectionSize(self.width()/3-4)
 
     def MenuFile(self, triggered):
         if triggered.text() == 'Load Image':
@@ -240,6 +270,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             self.tableWidget.item(0, 0).setText(f'{measure[0]}')
             self.tableWidget.item(0, 1).setText(f'{measure[1]}')
             self.tableWidget.item(0, 2).setText(f'{measure[2]}')
+            self.image.widget.setStatusTip(0, f'RMSE:{measure[0]}\t\t\tPSNR:{measure[1]}\t\t\tSNR:{measure[2]}\t')
+            self.label.setStatusTip(f'RMSE:{measure[0]}\t\t\tPSNR:{measure[1]}\t\t\tSNR:{measure[2]}\t')
         else:
             self.label.setPixmap(QPixmap())
     
