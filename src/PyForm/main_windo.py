@@ -148,14 +148,6 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             self.timer.start()
         elif self.image:
             self.timecount = 0
-    
-    #def timerEvent(self, event):
-    #    if not self.timecount:
-    #       self.pushButton_Plus.setHidden(True)
-    #        self.pushButton_Minus.setHidden(True)
-    #        self.killTimer(event.timerId())
-    #    elif self.timecount > 0:
-    #        self.timecount -= 1
         
     def resizeEvent(self, event):
         if self.hide_console:
