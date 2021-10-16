@@ -178,11 +178,11 @@
     <attribute name="horizontalHeaderCascadingSectionResizes">
      <bool>false</bool>
     </attribute>
-    <attribute name="horizontalHeaderMinimumSectionSize">
-     <number>70</number>
-    </attribute>
     <attribute name="horizontalHeaderDefaultSectionSize">
      <number>320</number>
+    </attribute>
+    <attribute name="horizontalHeaderMinimumSectionSize">
+     <number>70</number>
     </attribute>
     <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
      <bool>false</bool>
@@ -358,7 +358,7 @@
      <normaloff>../../icons/blue-folder-horizontal-open.png</normaloff>../../icons/blue-folder-horizontal-open.png</iconset>
    </property>
    <property name="text">
-    <string>Load Image</string>
+    <string>&amp;Load Image</string>
    </property>
    <property name="iconText">
     <string>Load Image</string>
@@ -379,7 +379,7 @@
      <normaloff>../../icons/cross-circle.png</normaloff>../../icons/cross-circle.png</iconset>
    </property>
    <property name="text">
-    <string>Remove Image</string>
+    <string>&amp;Remove Image</string>
    </property>
    <property name="iconText">
     <string>Remove Image</string>
@@ -400,7 +400,7 @@
      <normaloff>../../icons/disk.png</normaloff>../../icons/disk.png</iconset>
    </property>
    <property name="text">
-    <string>Save Image</string>
+    <string>&amp;Save Image</string>
    </property>
    <property name="iconText">
     <string>Save Image</string>
@@ -421,7 +421,7 @@
      <normaloff>../../icons/disk--pencil.png</normaloff>../../icons/disk--pencil.png</iconset>
    </property>
    <property name="text">
-    <string>Save Images in Group</string>
+    <string>Save &amp;Images in Group</string>
    </property>
    <property name="iconText">
     <string>Save Images in Group</string>
@@ -430,7 +430,7 @@
     <string>Save a image and his images derivation</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+G</string>
+    <string>Ctrl+I</string>
    </property>
   </action>
   <action name="actionExit">
@@ -439,7 +439,7 @@
      <normaloff>../../icons/if_logout_48698.png</normaloff>../../icons/if_logout_48698.png</iconset>
    </property>
    <property name="text">
-    <string>Exit</string>
+    <string>&amp;Exit</string>
    </property>
    <property name="statusTip">
     <string>Close the program</string>
@@ -457,7 +457,7 @@
      <normaloff>../../icons/application-image.png</normaloff>../../icons/application-image.png</iconset>
    </property>
    <property name="text">
-    <string>Edges</string>
+    <string>&amp;Edges</string>
    </property>
    <property name="statusTip">
     <string>Edge filters </string>
@@ -475,7 +475,7 @@
      <normaloff>../../icons/icon-diagram.png</normaloff>../../icons/icon-diagram.png</iconset>
    </property>
    <property name="text">
-    <string>Gaussian</string>
+    <string>&amp;Gaussian</string>
    </property>
    <property name="statusTip">
     <string>Gaussian filters</string>
@@ -493,7 +493,7 @@
      <normaloff>../../icons/scissors.png</normaloff>../../icons/scissors.png</iconset>
    </property>
    <property name="text">
-    <string>Threshold</string>
+    <string>&amp;Threshold</string>
    </property>
    <property name="statusTip">
     <string>Threshold filters</string>
@@ -508,7 +508,7 @@
      <normaloff>../../icons/question.png</normaloff>../../icons/question.png</iconset>
    </property>
    <property name="text">
-    <string>Help</string>
+    <string>&amp;Help</string>
    </property>
    <property name="statusTip">
     <string>Show program help</string>
@@ -523,7 +523,7 @@
      <normaloff>../../icons/if_hire-me_48687.png</normaloff>../../icons/if_hire-me_48687.png</iconset>
    </property>
    <property name="text">
-    <string>About the Authors</string>
+    <string>&amp;About the Authors</string>
    </property>
    <property name="shortcut">
     <string>F10</string>
@@ -535,7 +535,7 @@
      <normaloff>../../icons/if_special-offer_48729.png</normaloff>../../icons/if_special-offer_48729.png</iconset>
    </property>
    <property name="text">
-    <string>About the App</string>
+    <string>About &amp;the App</string>
    </property>
    <property name="shortcut">
     <string>F11</string>
@@ -547,7 +547,7 @@
      <normaloff>../../icons/clipboard-paste-document-text.png</normaloff>../../icons/clipboard-paste-document-text.png</iconset>
    </property>
    <property name="text">
-    <string>Orientation</string>
+    <string>&amp;Orientation</string>
    </property>
    <property name="shortcut">
     <string>F6</string>
@@ -559,7 +559,7 @@
      <normaloff>../../icons/printer.png</normaloff>../../icons/printer.png</iconset>
    </property>
    <property name="text">
-    <string>Report</string>
+    <string>&amp;Report</string>
    </property>
    <property name="shortcut">
     <string>F7</string>
@@ -578,7 +578,10 @@
     <bool>true</bool>
    </property>
    <property name="text">
-    <string>Images Tree</string>
+    <string>&amp;Images Tree</string>
+   </property>
+   <property name="shortcut">
+    <string>F3</string>
    </property>
   </action>
   <action name="actionTable">
@@ -589,7 +592,10 @@
     <bool>true</bool>
    </property>
    <property name="text">
-    <string>Table</string>
+    <string>&amp;Table</string>
+   </property>
+   <property name="shortcut">
+    <string>F4</string>
    </property>
   </action>
  </widget>

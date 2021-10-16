@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file './UiForm/main_window.ui'
 #
-# Created by: PyQt5 UI code generator 5.14.1
+# Created by: PyQt5 UI code generator 5.13.2
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -251,10 +251,10 @@ class Ui_MainWindow(object):
         self.tableWidget.setSortingEnabled(__sortingEnabled)
         self.pushButton_Minus.setStatusTip(_translate("MainWindow", "Shrink the image"))
         self.pushButton_Minus.setText(_translate("MainWindow", "-"))
-        self.menuFile.setTitle(_translate("MainWindow", "Fi&le"))
-        self.menuFilter.setTitle(_translate("MainWindow", "Fil&ters"))
-        self.menuOptions.setTitle(_translate("MainWindow", "O&ptions"))
-        self.menuView.setTitle(_translate("MainWindow", "&View"))
+        self.menuFile.setTitle(_translate("MainWindow", "File"))
+        self.menuFilter.setTitle(_translate("MainWindow", "Filters"))
+        self.menuOptions.setTitle(_translate("MainWindow", "Options"))
+        self.menuView.setTitle(_translate("MainWindow", "View"))
         self.actionLoad_Image.setText(_translate("MainWindow", "Load Image"))
         self.actionLoad_Image.setIconText(_translate("MainWindow", "Load Image"))
         self.actionLoad_Image.setStatusTip(_translate("MainWindow", "Load a new image"))
@@ -270,7 +270,7 @@ class Ui_MainWindow(object):
         self.actionSave_Group.setText(_translate("MainWindow", "Save Images in Group"))
         self.actionSave_Group.setIconText(_translate("MainWindow", "Save Images in Group"))
         self.actionSave_Group.setStatusTip(_translate("MainWindow", "Save a image and his images derivation"))
-        self.actionSave_Group.setShortcut(_translate("MainWindow", "Ctrl+G"))
+        self.actionSave_Group.setShortcut(_translate("MainWindow", "Ctrl+I"))
         self.actionExit.setText(_translate("MainWindow", "Exit"))
         self.actionExit.setStatusTip(_translate("MainWindow", "Close the program"))
         self.actionExit.setShortcut(_translate("MainWindow", "Ctrl+F4"))
@@ -296,7 +296,9 @@ class Ui_MainWindow(object):
         self.actionReport.setShortcut(_translate("MainWindow", "F7"))
         self.actionasdasd.setText(_translate("MainWindow", "asdasd"))
         self.actionImagesTree.setText(_translate("MainWindow", "Images Tree"))
+        self.actionImagesTree.setShortcut(_translate("MainWindow", "F3"))
         self.actionTable.setText(_translate("MainWindow", "Table"))
+        self.actionTable.setShortcut(_translate("MainWindow", "F4"))
 
 
 if __name__ == "__main__":

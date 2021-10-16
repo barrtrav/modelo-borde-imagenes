@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file './UiForm/edge_param.ui'
 #
-# Created by: PyQt5 UI code generator 5.14.1
+# Created by: PyQt5 UI code generator 5.13.2
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -73,9 +73,9 @@ class Ui_Dialog(object):
         self.comboBox.setItemText(5, _translate("Dialog", "Scahrr"))
         self.label.setText(_translate("Dialog", "Edges Filters"))
         self.label_2.setText(_translate("Dialog", "K-Size"))
-        self.radioButton_1.setText(_translate("Dialog", "&Simple"))
-        self.radioButton_2.setText(_translate("Dialog", "&Horizontal"))
-        self.radioButton_3.setText(_translate("Dialog", "Ve&rtical"))
+        self.radioButton_1.setText(_translate("Dialog", "Simple"))
+        self.radioButton_2.setText(_translate("Dialog", "Horizontal"))
+        self.radioButton_3.setText(_translate("Dialog", "Vertical"))
 
 
 if __name__ == "__main__":
