@@ -23,11 +23,11 @@ class EdgeParam(QDialog, Ui_Dialog_Edge):
         edgetype = self.comboBox.currentText()
 
         if edgetype == 'Roberts':
-            self.radioButton_3.setText('&Positive')
-            self.radioButton_2.setText('&Negative')
+            self.radioButton_3.setText('Positive')
+            self.radioButton_2.setText('Negative')
         else:
-            self.radioButton_3.setText('Ve&rtical')
-            self.radioButton_2.setText('&Horizontal')
+            self.radioButton_3.setText('Vertical')
+            self.radioButton_2.setText('Horizontal')
       
         if edgetype == 'Laplace':
             self.radioButton_1.setHidden(True)
