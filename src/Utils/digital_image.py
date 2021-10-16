@@ -154,7 +154,6 @@ class DigitalImage:
         if self.parent:
             mse = (np.square(self.parent.array - self.array)).mean()
             rmse = np.sqrt(mse)
-            mu = np.sum(self.array)/(self.width * self.height)
-            return rmse , 10*math.log10(255/mse), mu/np.std(self.parent.array)
+            mu = np.sum(self.array) / (self.width * self.height)
+            return round(rmse, 5), round(10 * math.log10(255 / mse), 5), round(mu / np.std(self.parent.array), 5)
         return 0, 0, 0
-        
