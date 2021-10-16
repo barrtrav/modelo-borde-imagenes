@@ -66,56 +66,56 @@ class DigitalImage:
         Aplica a la imagen el filtro edge segun los parametros escogidos.
         '''
         if edge.filter == 'Sobel':
-            if edge.ftype == '&Simple':
+            if edge.ftype == 'Simple':
                 image = filters.sobel(self.array)
                 name = f'{self.GetName}-edge-sobel-simple'
-            if edge.ftype == '&Horizontal':
+            if edge.ftype == 'Horizontal':
                 image = filters.sobel_h(self.array)
                 name = f'{self.GetName}-edge-sobel-horizontal'
-            if edge.ftype == '&Vertical':
+            if edge.ftype == 'Vertical':
                 image = filters.sobel_v(self.array)
                 name = f'{self.GetName}-edge-sobel-vertical'
         if edge.filter == 'Scharr':
-            if edge.ftype == '&Simple':
+            if edge.ftype == 'Simple':
                 image = filters.scharr(elf.array)
                 name = f'{self.GetName}-edge-scharr-simple'
-            if edge.ftype == '&Horizontal':
+            if edge.ftype == 'Horizontal':
                 image = filters.scharr_h(self.array)
                 name = f'{self.GetName}-edge-scharr-horizontal'
-            if edge.ftype == '&Vertical':
+            if edge.ftype == 'Vertical':
                 image = filters.scharr_v(self.array)
                 name = f'{self.GetName}-edge-scharr-vertical'
         if edge.filter == 'Prewitt':
-            if edge.ftype == '&Simple':
+            if edge.ftype == 'Simple':
                 image = filters.prewitt(self.array)
                 name = f'{self.GetName}-edge-prewitt-simple'
-            if edge.ftype == '&Horizontal':
+            if edge.ftype == 'Horizontal':
                 image = filters.prewitt_h(self.array)
                 name = f'{self.GetName}-edge-prewitt-horizontal'
-            if edge.ftype == '&Vertical':
+            if edge.ftype == 'Vertical':
                 image = filters.prewitt_v(self.array)
                 name = f'{self.GetName}-edge-prewitt-vertical'
         if edge.filter == 'Roberts':
-            if edge.ftype == '&Simple':
+            if edge.ftype == 'Simple':
                 image = filters.roberts(self.array)
                 name = f'{self.GetName}-edge-roberts-simple'
-            if edge.ftype == '&Positive':
+            if edge.ftype == 'Positive':
                 image = filters.roberts_pos_diag(self.array)
                 name = f'{self.GetName}-edge-roberts-positive'
-            if edge.ftype == '&Negative':
+            if edge.ftype == 'Negative':
                 image = filters.roberts_neg_diag(self.array)
                 name = f'{self.GetName}-edge-roberts-negative'
         if edge.filter == 'Laplace':
             image = filters.laplace(self.array, edge.ksize)
             name = f'{self.GetName}-edge-laplace'
         if edge.filter == 'Farid':
-            if edge.ftype == '&Simple':
+            if edge.ftype == 'Simple':
                 image = filters.farid(self.array)
                 name = f'{self.GetName}-edge-farid-simple'
-            if edge.ftype == '&Horizontal':
+            if edge.ftype == 'Horizontal':
                 image = filters.farid_h(self.array)
                 name = f'{self.GetName}-edge-farid-horizontal'
-            if edge.ftype == '&Vertical':
+            if edge.ftype == 'Vertical':
                 image = filters.farid_v(self.array)
                 name = f'{self.GetName}-edge-farid-vertical'
 
