@@ -29,7 +29,7 @@ class DigitalImage:
         '''
         Propiedad que devuelve el nombre del fichero.
         '''
-        name = self.filename[:-5]
+        name, _ = self.filename.split('.')
         return name
     
     @property
